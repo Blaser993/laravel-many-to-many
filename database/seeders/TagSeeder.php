@@ -16,12 +16,12 @@ class TagSeeder extends Seeder
      */
     public function run()
     {
-        $tags = ['CSS','SASS', 'HTML', 'JS', 'Bootstrap', 'PHP', 'Vue','Laravel'  ];
+        $tags = ['CSS','SASS','HTML','JS','Bootstrap','PHP','Vue','Laravel'];
 
         foreach ($tags as $tag_name) {
             $tag = new Tag();
 
-            $tag = $tag_name;
+            $tag->name = $tag_name;
             $tag->slug = Str::slug($tag_name);
 
             $tag->save();
