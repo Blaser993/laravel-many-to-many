@@ -57,7 +57,7 @@
             @empty
             <th colspan="6">Nessun post</th>
             <div>
-                <a class="btn btn-primaty" href="{{ route('projects.create')}}">Crea un nuovo progetto</a>
+                <a class="btn btn-primary" href="{{ route('projects.create')}}">Crea un nuovo progetto</a>
 
             </div>
         @endforelse
