@@ -7,6 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
+use App\Models\Tag;
 
 class ProjectSeeder extends Seeder
 {
@@ -18,6 +19,8 @@ class ProjectSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+        $tag_ids = Tag::all()->pluck('id')->all();
+
         for ($i = 0; $i < 50; $i++){
 
             $project = new Project();
@@ -25,6 +28,8 @@ class ProjectSeeder extends Seeder
             $project->description = $faker->optional()->text(500);
             $project->slug = Str::slug($project->title, '-');
             $project->save();
+
+            $project->tags()->attach( $faker->randomElements($tag_ids));
         }
     }
 }

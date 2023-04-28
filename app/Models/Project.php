@@ -15,4 +15,8 @@ class Project extends Model
         'description',
         'slug'
     ];
+
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
+    }
 }
